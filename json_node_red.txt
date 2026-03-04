@@ -1,0 +1,187 @@
+[
+    {
+        "id": "a6494038d23b704b",
+        "type": "tab",
+        "label": "ADVANCE_5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "25c784f96e6daae3",
+        "type": "debug",
+        "z": "a6494038d23b704b",
+        "name": "Display",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c1927a606826badd",
+        "type": "mqtt in",
+        "z": "a6494038d23b704b",
+        "name": "",
+        "topic": "name/adv/seq",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e81cfeb978605dbb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "25c784f96e6daae3"
+            ]
+        ]
+    },
+    {
+        "id": "4ddb25b077269356",
+        "type": "inject",
+        "z": "a6494038d23b704b",
+        "name": "go",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "go",
+        "payloadType": "str",
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "877261c5ed233859"
+            ]
+        ]
+    },
+    {
+        "id": "877261c5ed233859",
+        "type": "mqtt out",
+        "z": "a6494038d23b704b",
+        "name": "",
+        "topic": "name/adv/seq",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e81cfeb978605dbb",
+        "x": 680,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1549ab663d192173",
+        "type": "inject",
+        "z": "a6494038d23b704b",
+        "name": "go2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "go2",
+        "payloadType": "str",
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "877261c5ed233859"
+            ]
+        ]
+    },
+    {
+        "id": "dc6476d02f7e0cc0",
+        "type": "mqtt in",
+        "z": "a6494038d23b704b",
+        "name": "",
+        "topic": "name/adv/colorsensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e81cfeb978605dbb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "ef7b9f71cc537bf0",
+                "25c784f96e6daae3"
+            ]
+        ]
+    },
+    {
+        "id": "ef7b9f71cc537bf0",
+        "type": "mqtt out",
+        "z": "a6494038d23b704b",
+        "name": "",
+        "topic": "name/adv/cos",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e81cfeb978605dbb",
+        "x": 680,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e81cfeb978605dbb",
+        "type": "mqtt-broker",
+        "name": "EMQX",
+        "broker": "broker.emqx.io",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
